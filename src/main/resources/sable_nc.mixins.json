@@ -5,7 +5,8 @@
   "compatibilityLevel": "JAVA_21",
   "mixins": [
     "BlockPlaceContextMixin_snc",
-    "EntityMixin_snc"
+    "EntityMixin_snc",
+    "BlockItemMixin_snc"
   ],
   "client": [
   ],
