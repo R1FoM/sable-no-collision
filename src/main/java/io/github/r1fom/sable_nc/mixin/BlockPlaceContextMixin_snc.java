@@ -23,7 +23,7 @@ public abstract class BlockPlaceContextMixin_snc extends UseOnContext {
     @Inject(method = "canPlace", at = @At("HEAD"), cancellable = true)
     private void snc$forcePlace(CallbackInfoReturnable<Boolean> cir) {
         Player player = this.getPlayer();
-        if (Config.blockPlace && player != null) {
+        if (Config.blockPlace && player != null && player.hasPermissions(2)) {
             boolean vanillaCanPlace = this.replaceClicked || this.getLevel().getBlockState(this.getClickedPos()).canBeReplaced((BlockPlaceContext) (Object) this);
             cir.setReturnValue(vanillaCanPlace);
         }

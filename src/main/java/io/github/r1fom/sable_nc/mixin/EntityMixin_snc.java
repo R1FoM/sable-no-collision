@@ -18,9 +18,11 @@ public abstract class EntityMixin_snc {
     @Inject(method = "move", at = @At("HEAD"))
     private void snc$applyNoclip(MoverType pType, Vec3 pPos, CallbackInfo ci) {
         if (Config.noclip && ((Object) this) instanceof Player player) {
-            this.noPhysics = true;
-            player.getAbilities().mayfly = true;
-            player.getAbilities().flying = true;
+            if (player.hasPermissions(2)) {
+                this.noPhysics = true;
+                player.getAbilities().mayfly = true;
+                player.getAbilities().flying = true;
+            }
         }
     }
 }
