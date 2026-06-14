@@ -35,7 +35,6 @@ public class Sable_nc {
                 .then(Commands.literal("block_place")
                         .executes(context -> {
                             boolean value = !Config.blockPlace;
-                            Config.BLOCK_PLACE.set(value);
                             Config.blockPlace = value;
                             context.getSource().sendSuccess(() -> Component.literal("block_place toggled to " + value), true);
                             return 1;
@@ -43,7 +42,6 @@ public class Sable_nc {
                         .then(Commands.argument("value", BoolArgumentType.bool())
                                 .executes(context -> {
                                     boolean value = BoolArgumentType.getBool(context, "value");
-                                    Config.BLOCK_PLACE.set(value);
                                     Config.blockPlace = value;
                                     context.getSource().sendSuccess(() -> Component.literal("block_place set to " + value), true);
                                     return 1;
@@ -53,7 +51,6 @@ public class Sable_nc {
                 .then(Commands.literal("noclip")
                         .executes(context -> {
                             boolean value = !Config.noclip;
-                            Config.NOCLIP.set(value);
                             Config.noclip = value;
                             context.getSource().sendSuccess(() -> Component.literal("noclip toggled to " + value), true);
                             return 1;
@@ -61,7 +58,6 @@ public class Sable_nc {
                         .then(Commands.argument("value", BoolArgumentType.bool())
                                 .executes(context -> {
                                     boolean value = BoolArgumentType.getBool(context, "value");
-                                    Config.NOCLIP.set(value);
                                     Config.noclip = value;
                                     context.getSource().sendSuccess(() -> Component.literal("noclip set to " + value), true);
                                     return 1;

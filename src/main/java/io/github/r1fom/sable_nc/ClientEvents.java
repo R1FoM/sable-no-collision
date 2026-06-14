@@ -33,6 +33,12 @@ public class ClientEvents {
     @EventBusSubscriber(modid = Sable_nc.MODID, value = Dist.CLIENT, bus = EventBusSubscriber.Bus.GAME)
     public static class ClientGameEvents {
         @SubscribeEvent
+        public static void onClientLogout(net.neoforged.neoforge.client.event.ClientPlayerNetworkEvent.LoggingOut event) {
+            Config.blockPlace = false;
+            Config.noclip = false;
+        }
+
+        @SubscribeEvent
         public static void onClientTick(ClientTickEvent.Post event) {
             Minecraft mc = Minecraft.getInstance();
             if (mc.player != null && mc.player.hasPermissions(2)) {
