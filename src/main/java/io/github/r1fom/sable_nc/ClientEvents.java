@@ -35,7 +35,7 @@ public class ClientEvents {
         @SubscribeEvent
         public static void onClientTick(ClientTickEvent.Post event) {
             Minecraft mc = Minecraft.getInstance();
-            if (mc.player != null && mc.player.hasPermissions(2)) {
+            if (mc.player != null) {
                 while (TOGGLE_BLOCK_PLACE.consumeClick()) {
                     mc.getConnection().sendCommand("snc block_place");
                 }
